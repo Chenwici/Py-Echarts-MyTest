@@ -13,7 +13,7 @@
 ## pyecharts-master 目錄說明:
 這是原始開源庫,來源於https://pyecharts.org
 
-本庫即是基於該框架的各種研究，
+本庫即是基於該框架的各種研究。
 
 ## pyecharts-flask-demo 目錄說明:
 包含Flask的快速生成chart的簡易測試程式。
