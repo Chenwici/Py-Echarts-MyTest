@@ -7,14 +7,14 @@
     <script type="text/javascript" src="https://assets.pyecharts.org/assets/echarts.min.js"></script>
 </head>
 <body>
-    <div id="bar" style="width:1000px; height:600px;"></div>
+    <div id="Liquid" style="width:1000px; height:600px;"></div>
     <script>
         $(
             function () {
-                var chart = echarts.init(document.getElementById('bar'), 'white', {renderer: 'canvas'});
+                var chart = echarts.init(document.getElementById('LiquidChart'), 'white', {renderer: 'canvas'});
                 $.ajax({
                     type: "GET",
-                    url: "http://127.0.0.1:5000/barChart",
+                    url: "http://127.0.0.1:5000/LiquidChart",
                     dataType: 'json',
                     success: function (result) {
                         chart.setOption(result);
