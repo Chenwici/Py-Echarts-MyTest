@@ -2,7 +2,7 @@
 #netstat -nao | find "0.0.0.0:5000"
 #砍掉占用XXXXX為上列找到的PID編號,後面加/F是強制刪除
 #taskkill /pid XXXXX /F
-
+import time
 from random import randrange
 
 from flask.json import jsonify
@@ -18,10 +18,10 @@ app = Flask(__name__, static_folder="templates")
 def line_base() -> Line:
     line = (
         Line()
-        .add_xaxis(["{}".format(i) for i in range(10)])
+        .add_xaxis(["9:45:55","9:46:0","9:46:5"])
         .add_yaxis(
             series_name="",
-            y_axis=[randrange(50, 80) for _ in range(10)],
+            y_axis=[randrange(50, 80) for _ in range(3)],
             is_smooth=True,
             label_opts=opts.LabelOpts(is_show=False),
         )
@@ -44,14 +44,15 @@ def get_line_chart():
     c = line_base()
     return c.dump_options_with_quotes()
 
-
-idx = 9
+#idx = time.localtime()
+localtime = time.localtime()
+idx = time.strftime("%I:%M:%S", localtime)
 
 
 @app.route("/lineDynamicData")
 def update_line_data():
     global idx
-    idx = idx + 1
+    #idx = idx + 1
     return jsonify({"name": idx, "value": randrange(50, 80)})
 
 

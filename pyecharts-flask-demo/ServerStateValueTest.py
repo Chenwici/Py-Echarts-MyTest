@@ -8,7 +8,7 @@ app = Flask(__name__, static_folder="templates")
 #靜態回傳方法
 @app.route("/")
 def index():
-    return "Hello World!!"
+    return render_template("index.html")
 
 #靜態回傳方法
 @app.route("/GaugeTest")
